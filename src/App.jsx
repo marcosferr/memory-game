@@ -48,12 +48,14 @@ function App() {
       <Flipper flipKey={cardSet} className="card-container">
         {cardSet.map((card) => (
           <Flipped key={card.id} flipId={card.id}>
-            <Card
-              id={card.id}
-              name={card.name}
-              imageUrl={card.imageUrl}
-              handleClick={handleClick}
-            />
+            <div>
+              <Card
+                id={card.id}
+                name={card.name}
+                imageUrl={card.imageUrl}
+                handleClick={handleClick}
+              />
+            </div>
           </Flipped>
         ))}
       </Flipper>
