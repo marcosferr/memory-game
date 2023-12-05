@@ -23,6 +23,11 @@ function App() {
 
     shuffleData();
   };
+  const restart = () => {
+    setScore(0);
+    setClickedCards([]);
+    shuffleData();
+  };
   const shuffleData = () => {
     const newCardSet = [...cardSet];
     setCardSet(newCardSet.sort(() => Math.random() - 0.5));
@@ -30,6 +35,7 @@ function App() {
 
   return (
     <>
+      {score === 2 && <WinModal restart={restart} />}
       <h1>Memory Game</h1>
       <div className="scoreDisplay">
         <div>Current Score: {score} </div>
@@ -48,4 +54,12 @@ function App() {
   );
 }
 
+const WinModal = ({ restart }) => {
+  return (
+    <div className="win-modal">
+      <div>You Win!</div>
+      <button onClick={restart}>Play Again</button>
+    </div>
+  );
+};
 export default App;

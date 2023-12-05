@@ -89,3 +89,34 @@ h1 {
   gap: 1rem;
   font-size: 2rem;
 }
+
+.win-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+}
+
+.win-modal div {
+  font-size: 5rem;
+  margin-bottom: 2rem;
+}
+.win-modal button {
+  padding: 1rem 2rem;
+  font-size: 2rem;
+  border-radius: 0.5rem;
+  background-color: #1e1e1e;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.win-modal button:hover {
+  background-color: #535bf2;
+}
