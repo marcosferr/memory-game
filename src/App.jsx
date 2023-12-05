@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Card from "./Componentes/Card";
-
+import { Flipper, Flipped } from "react-flip-toolkit";
 import "./App.css";
 import data from "./data.json";
 
@@ -35,7 +35,7 @@ function App() {
 
   return (
     <>
-      {score === 2 && <WinModal restart={restart} />}
+      {score === 12 && <WinModal restart={restart} />}
       <h1>Memory Game</h1>
       <div className="scoreDisplay">
         <div>Current Score: {score} </div>
@@ -45,11 +45,20 @@ function App() {
         Get points by clicking on an image but don't click on any more than
         once!
       </div>
-      <div className="card-container">
-        {cardSet.map((item) => (
-          <Card key={item.id} {...item} handleClick={handleClick} />
+      <Flipper flipKey={cardSet} className="card-container">
+        {cardSet.map((card) => (
+          <Flipped key={card.id} flipId={card.id}>
+            <div>
+              <Card
+                id={card.id}
+                name={card.name}
+                imageUrl={card.imageUrl}
+                handleClick={handleClick}
+              />
+            </div>
+          </Flipped>
         ))}
-      </div>
+      </Flipper>
     </>
   );
 }
