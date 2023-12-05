@@ -35,7 +35,7 @@ function App() {
 
   return (
     <>
-      {score === 12 && <WinModal restart={restart} />}
+      {score === 10 && <WinModal restart={restart} />}
       <h1>Memory Game</h1>
       <div className="scoreDisplay">
         <div>Current Score: {score} </div>
